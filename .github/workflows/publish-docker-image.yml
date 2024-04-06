@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IMAGE: amruthpillai/reactive-resume
+  IMAGE: stiforr/reactive-resume
 
 jobs:
   build:
@@ -25,7 +25,6 @@ jobs:
       matrix:
         platform:
           - linux/amd64
-          - linux/arm64
 
     steps:
       - name: Checkout Repository
