@@ -52,7 +52,10 @@ services:
     command: redis-server
 
   app:
-    image: amruthpillai/reactive-resume:latest
+    # image: amruthpillai/reactive-resume:latest
+    build:
+      context: ../../
+      dockerfile: Dockerfile
     restart: unless-stopped
     ports:
       - ${PORT:-3000}:3000
