@@ -118,8 +118,8 @@ jobs:
         uses: docker/login-action@v3.0.0
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ github.token }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract Docker Metadata
         id: meta
@@ -128,7 +128,7 @@ jobs:
           tags: type=semver,pattern={{version}},prefix=v,value=${{ needs.build.outputs.version }}
           images: |
             ${{ env.IMAGE }}
-            ghcr.io/${{ env.IMAGE }}
+            ghcr.io/insuusvenerati/reactive-resume
 
       - name: Create Docker Manifest List and Push
         working-directory: /tmp/digests
